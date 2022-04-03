@@ -1,0 +1,9 @@
+@import url(../vendors/normalize.css);
+
+.page{
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.pages{
+    max-width: 1024px;
+}
