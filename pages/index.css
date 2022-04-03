@@ -1,12 +1,13 @@
 @import url(../vendors/normalize.css);
+@import url(../fonts/fonts.css);
 
 .page{
     background-color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', 'Helvetica', 'sans-serif';
 }
 .page_content{
     margin: 0 auto;
-    max-width: 1024px;
+    max-width: 880px;
 }
 .header{
     margin: 0;
@@ -20,21 +21,91 @@
     padding-left: 0;
 }
 .profile{
-    margin: 36px 0 0 0;
+    margin: 40px 0 0 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 .profile__avatar{
-  width: 120px;
-  height: 120px;  
+    width: 120px;
+    height: 120px;  
 }
 .profile__info{
-n  
+    margin: 0;
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
 .profile__add-button{
-
-   max-width: 150px;
-   max-height: 50px; 
+    max-width: 150px;
+    max-height: 50px; 
+}
+.profile__text{
+    margin: 0 0 0 30px;
+}
+.profile__name{
+    margin: 21px 0 0 0;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+}
+.profile__about{
+    margin: 16px 0 0 0;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+.profile__change{
+    margin: 37px 0 0 18px;
+    width: 24px;
+    height: 24px;
+}
+.cards{
+    margin: 50px 0 0 0;
+}
+.cards__table{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 282px);
+    grid-template-rows: repeat(3, 361px);
+    gap: 20px 17px;
+    box-sizing: border-box;
+}
+.card{
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.card__image{
+    padding: 0;
+    width: 282px;
+    height: 282px;
+}
+.card__description{
+    margin: 25px 0 31px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card__name{
+    margin: 0 0 0 21px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+}
+.card__button-like{
+    width: 22px;
+    height: 19px;
+    margin: 0 15px;
 }
