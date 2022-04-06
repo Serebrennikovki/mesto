@@ -11,16 +11,26 @@
             <header class="header">
                 <img class="header__logo" src="./images/Vector_logo.svg" alt="лого">
             </header>
-            <section class="profile">  
-                <div class="profile__info">
+            <section class="profile"> 
+                <div class="profile__author">
                     <img class="profile__avatar" src="./images/Avatar.png" alt="портрет">
-                    <div class="profile__text">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <p class="profile__about">Исследователь океана</p>
+                    <div class="profile__info">
+                        <div class="profile__text">
+                            <h1 class="profile__name">Жак-Ив Кусто</h1>
+                            <p class="profile__about">Исследователь океана</p>
+                        </div>
+                        <a class="profile__change" href="#"><img class="" alt="кнопка" src="./images/Edit Button.png"></a>
                     </div>
-                    <a class="profile__change" href="#"><img class="" alt="кнопка" src="./images/Edit Button.png"></a>
                 </div>
-                <img class="profile__add-button" src="./images/Add Button.png" alt="кнопка_добавить">
+                <a class="profile__add-button" href="#" >
+                    <picture>
+
+                        <source media="(min-width: 750px)" srcset="../">
+             
+                        <source media="(min-width: 265px)" srcset="img_white_flower.jpg">
+             
+             </picture>
+                </a>
             </section>
             <section class="cards">
                 <ul class="cards__table">
@@ -69,7 +79,7 @@
                 </ul>
              </section>
              <footer class="footer">
-                 <img class="footer__copyright" src="./images/© 2020 Mesto Russia.png" alt="Копирайт">
+                 <p class="footer__copyright">&COPY 2020 Mesto Russia</p>
              </footer>
         </div>
 

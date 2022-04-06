@@ -5,3 +5,15 @@
     padding-bottom: 41px;
     padding-left: 0;
 }
+@media screen and (max-width: 900px) {
+    .header__logo{
+        padding-left: 27px;
+    }
+    
+}
+@media screen and (max-width: 470px) {
+    .header__logo{
+        width: 104px;
+        height: 25px;
+    }
+}
