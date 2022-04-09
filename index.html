@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="./pages/index.css">
         <title>Место</title>
     </head>
@@ -19,18 +19,16 @@
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
                             <p class="profile__about">Исследователь океана</p>
                         </div>
-                        <a class="profile__change" href="#"><img class="" alt="кнопка" src="./images/Edit Button.png"></a>
+                        <button class="button profile__change-button" ><img class="" alt="кнопка" src="./images/Edit Button.png"></button>  
                     </div>
                 </div>
-                <a class="profile__add-button" href="#" >
-                    <picture>
-
-                        <source media="(min-width: 750px)" srcset="../">
-             
-                        <source media="(min-width: 265px)" srcset="img_white_flower.jpg">
-             
-             </picture>
-                </a>
+                <button class="button">
+                    <picture class="profile__add-button">
+                        <source media="(max-width: 649px)" srcset="./images/AddButton282px.png">
+                        <source media="( min-width: 650px)" srcset="./images/AddButton.png">
+                        <img alt="кнопка"  src="./images/AddButton.png">
+                    </picture>
+                </button>
             </section>
             <section class="cards">
                 <ul class="cards__table">
@@ -81,6 +79,15 @@
              <footer class="footer">
                  <p class="footer__copyright">&COPY 2020 Mesto Russia</p>
              </footer>
+             <div class="popup">
+                <div class="popup__window">
+                    <button class="popup__close-button"> </button>
+                    <h2 class="popup__header">Редактировать профиль</h2>
+                    <input class="popup__input-text" type="text" value="Жак-Ив Кусто"> 
+                    <input class="popup__input-text" type="text" value="Исследователь океана">
+                </div>
+            </div>
         </div>
-
+    <script src="./scripts/index.js"></script>
     </body>
+</html>
