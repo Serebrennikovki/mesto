@@ -17,9 +17,8 @@
     content: '';
     height: 30px;
     border: 2px solid white;
-    background-color: white ;
+    background-color: white;
     transform: rotate(45deg);
-
 }
 
 .popup__close-button::after{
@@ -44,6 +43,5 @@
     .popup__close-button::after{
         height: 20px;
         border: 1px solid white;
-    }
-    
-};
+    } 
+}

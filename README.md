@@ -11,5 +11,6 @@
 
 **Картинки**
 Картинки для таблицы мест взяты с сайта https://unsplash.com/, остальные из Figma. Также они оптимизированы на специальном ресурсе
+
 ** Ссылка на готовый проект**
-https://serebrennikovki.github.io/mesto/index.html
+*[Ссылка на Pages]https://serebrennikovki.github.io/mesto/index.html

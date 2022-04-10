@@ -9,7 +9,6 @@
     .popup__window{
         margin: 0 19px;
         width: calc(100vw - 38px);
-        max-height: 330px
-    }
-    
+        max-height: 330px;
+    }   
 }
