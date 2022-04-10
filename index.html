@@ -7,7 +7,7 @@
         <title>Место</title>
     </head>
     <body class="page">
-        <div class="page_content">
+        <main class="page_content">
             <header class="header">
                 <img class="header__logo" src="./images/Vector_logo.svg" alt="лого">
             </header>
@@ -17,16 +17,16 @@
                     <div class="profile__info">
                         <div class="profile__text">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <p class="profile__about">Исследователь океана</p>
+                            <p class="profile__job">Исследователь океана</p>
                         </div>
-                        <button class="button profile__change-button" ><img class="" alt="кнопка" src="./images/Edit Button.png"></button>  
+                        <button class="button profile__change-button" ><img class="" alt="кнопка" src="./images/EditButton.png"></button>  
                     </div>
                 </div>
                 <button class="button">
-                    <picture class="profile__add-button">
-                        <source media="(max-width: 649px)" srcset="./images/AddButton282px.png">
-                        <source media="( min-width: 650px)" srcset="./images/AddButton.png">
-                        <img alt="кнопка"  src="./images/AddButton.png">
+                    <picture>
+                        <source media="(max-width: 669px)" srcset="./images/AddButton282px.png">
+                        <source media="(min-width: 670px)" srcset="./images/AddButton.png">
+                        <img class="profile__add-button" alt="кнопка"  src="./images/AddButton.png">
                     </picture>
                 </button>
             </section>
@@ -36,58 +36,59 @@
                         <img class="card__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="фото">
                         <div class="card__description">
                             <h2 class="card__name">Домбай</h2>
-                            <img class="card__button-like" src="./images/Vector.svg" alt="кнопка">
+                            <button class="card__button-like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img class="card__image" src="./images/aisvri-3XPdegJ-LOU-unsplash.jpg" alt="фото">
                         <div class="card__description">
                             <h2 class="card__name block">Карачаево-Черкессия</h2>
-                            <img class="card__button-like" src="./images/Vector.svg" alt="кнопка">
+                            <button class="card__button-like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img class="card__image" src="./images/kseniya-danilina-lBC1z4B17zI-unsplash.jpg" alt="фото">
                         <div class="card__description">
                             <h2 class="card__name block">Дагестан</h2>
-                            <img class="card__button-like" src="./images/Vector.svg" alt="кнопка">
+                            <button class="card__button-like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img class="card__image" src="./images/andrey-svistunov-lSe8g99Q6xU-unsplash.jpg" alt="фото">
                         <div class="card__description">
                             <h2 class="card__name block">Карелия</h2>
-                            <img class="card__button-like" src="./images/Vector.svg" alt="кнопка">
+                            <button class="card__button-like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img class="card__image" src="./images/shapovalow-QevSXeMJFPM-unsplash.jpg" alt="фото">
                         <div class="card__description">
                             <h2 class="card__name block">Крым</h2>
-                            <img class="card__button-like" src="./images/Vector.svg" alt="кнопка">
+                            <button class="card__button-like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img class="card__image" src="./images/daniil-silantev-4RUjxiSK23M-unsplash.jpg" alt="фото">
                         <div class="card__description">
                             <h2 class="card__name block">Урал</h2>
-                            <img class="card__button-like" src="./images/Vector.svg" alt="кнопка">
+                            <button class="card__button-like"></button>
                         </div>
                     </li>
                 </ul>
              </section>
              <footer class="footer">
-                 <p class="footer__copyright">&COPY 2020 Mesto Russia</p>
+                 <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>
              </footer>
              <div class="popup">
-                <div class="popup__window">
+                <form class="popup__window">
                     <button class="popup__close-button"> </button>
                     <h2 class="popup__header">Редактировать профиль</h2>
-                    <input class="popup__input-text" type="text" value="Жак-Ив Кусто"> 
-                    <input class="popup__input-text" type="text" value="Исследователь океана">
-                </div>
+                    <input id="nameInput" class="popup__input-text popup__input-text_field_name" type="text"> 
+                    <input id="jobInput" class="popup__input-text popup__input-text_field_job" type="text">
+                    <button class="popup__save-button" type="submit">Сохранить</button>
+                </form>
             </div>
-        </div>
+        </main>
     <script src="./scripts/index.js"></script>
     </body>
 </html>

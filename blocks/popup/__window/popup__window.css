@@ -8,7 +8,7 @@
 @media screen and (max-width: 460px) {
     .popup__window{
         margin: 0 19px;
-        width: calc(100%-38px);
+        width: calc(100vw - 38px);
         max-height: 330px
     }
     

@@ -1,9 +1,20 @@
 .popup__input-text{
-    border-bottom: 1px solid #000000;
+    margin: 17px 36px 0;
     width: 358px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    border: 0;
+    border-bottom: 1px solid black;
+    height: 40px;
+}
+
+@media screen and (max-width: 460px) {
+    .popup__input-text{
+        margin: 17px 22px 0;
+        width: calc(100vw - 82px);
+    }
+    
 }
