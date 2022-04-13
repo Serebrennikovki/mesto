@@ -9,9 +9,11 @@
     border: none;
     background: none;
 }
+
 .popup__close-button:hover{
     opacity: 0.6;
 }
+
 .popup__close-button::before{
     position: absolute;
     content: '';
@@ -29,6 +31,7 @@
     background-color: white;
     transform: rotate(135deg);
 }
+
 @media screen and (max-width: 500px) {
     .popup__close-button{
         height: 20px;
@@ -36,10 +39,12 @@
         right: 0px;
         top: -56px;
     }
+
     .popup__close-button::before{
         height: 20px;
         border: 1px solid white;
     }
+
     .popup__close-button::after{
         height: 20px;
         border: 1px solid white;

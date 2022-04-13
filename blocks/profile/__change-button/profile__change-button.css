@@ -4,9 +4,11 @@
     height: 24px;
     cursor: pointer;
 }
+
 .profile__change-button:hover{
     opacity: 0.6;
 }
+
 @media  screen and (max-width:670px) {
     .profile__change-button{
         margin: 25px 0 0 10px;

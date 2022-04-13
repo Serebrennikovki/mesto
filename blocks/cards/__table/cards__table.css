@@ -8,18 +8,18 @@
     box-sizing: border-box;
     justify-content: center;
 }
+
 @media screen and (max-width: 880px){
     .cards__table{
         grid-template-columns: 282px 282px;
         grid-template-rows: repeat(3, 361px);
-    }
-    
+    }   
 }
+
 @media screen and (max-width: 584px){
     .cards__table{
         grid-template-columns:  282px;
         grid-template-rows: repeat(6, 361px);
         gap: 20px;
-    }
-    
+    }  
 }

@@ -6,7 +6,8 @@
     background-color: black;
     color:white;
     text-align: center;
-    font-family: 'Inter';
+    font-family: 'Inter', 'Helvetica', 'sans-serif'
+    ;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -14,6 +15,7 @@
     border-radius: 2px;
     cursor: pointer;
 }
+
 .popup__save-button:hover{
     opacity: 0.6;
 }
@@ -26,5 +28,4 @@
         font-size: 14px;
         line-height: 17px;
     }
-    
 }

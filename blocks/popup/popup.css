@@ -1,5 +1,5 @@
 .popup{
-    font-family: Inter, sans-serif;
+    font-family: 'Inter', 'Helvetica', 'sans-serif';
     position: fixed;
     z-index: 10;
     color: black;

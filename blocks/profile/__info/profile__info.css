@@ -6,6 +6,7 @@
     box-sizing: border-box;
     justify-self: start;
 }
+
 @media screen and (max-width: 650px) {
     .profile__info{
         justify-content: center;

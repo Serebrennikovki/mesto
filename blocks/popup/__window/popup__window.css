@@ -5,6 +5,7 @@
     width: 430px;
     height: 330px;
 }
+
 @media screen and (max-width: 460px) {
     .popup__window{
         margin: 0 19px;
