@@ -6,12 +6,21 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    max-width: 500px;
+}
+
+@media  screen and (max-width: 880px) {
+    .profile__job{
+        max-width: calc(100vw - 400px);
+    }
 }
 
 @media screen and (max-width: 670px) {
     .profile__job{
+        margin-top: 14px;
         text-align: center;
         font-size: 14px;
         line-height: 17px;
+        max-width: calc(100vw - 60px);
     }
 }

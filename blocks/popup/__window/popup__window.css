@@ -3,13 +3,12 @@
     border-radius: 10px;
     background-color:white;
     width: 430px;
-    height: 330px;
+    min-height: 330px;
 }
 
 @media screen and (max-width: 460px) {
     .popup__window{
         margin: 0 19px;
         width: calc(100vw - 38px);
-        max-height: 330px;
     }   
 }
