@@ -16,7 +16,7 @@
 @media screen and (max-width: 670px) {
     .profile__add-button{
         margin: 36px 0 0;
-        width: 282px;;
+        width: 282px;
         background-image: url(../../../images/Add_Button282px.svg);/*в данном случае обязательно, поскольку блок  растянется и не будет не по брифу. Так как изменилась только ширина, высота осталась та же.*/
     }
 }
