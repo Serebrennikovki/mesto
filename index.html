@@ -7,84 +7,82 @@
         <title>Место</title>
     </head>
     <body class="page">
-        <div class="page__content">
-            <header class="header">
-                <img class="header__logo" src="./images/Vector_logo.svg" alt="лого">
-            </header>
-            <main>
-                <section class="profile"> 
-                    <div class="profile__author">
-                        <img class="profile__avatar" src="./images/Avatar.png" alt="портрет">
-                        <div class="profile__info">
-                            <div class="profile__text">
-                                <h1 class="profile__name block">Жак-Ив Кусто</h1>
-                                <p class="profile__job block">Исследователь океана</p>
-                            </div>
-                            <button class="profile__change-button" type="button"></button>  
+        <header class="header">
+            <img class="header__logo" src="./images/Vector_logo.svg" alt="лого">
+        </header>
+        <main class="page__content">
+            <section class="profile"> 
+                <div class="profile__author">
+                    <img class="profile__avatar" src="./images/Avatar.png" alt="портрет">
+                    <div class="profile__info">
+                        <div class="profile__text">
+                            <h1 class="profile__name block">Жак-Ив Кусто</h1>
+                            <p class="profile__job block">Исследователь океана</p>
                         </div>
+                        <button class="profile__change-button" type="button"></button>  
                     </div>
-                    <button class="profile__add-button" type="button"></button>
-                </section>
-                <section class="cards">
-                    <ul class="cards__table">
-                        <li class="card">
-                            <img class="card__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="фото">
-                            <div class="card__description">
-                                <h2 class="card__name block">Домбай</h2>
-                                <button class="card__button-like" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img class="card__image" src="./images/aisvri-3XPdegJ-LOU-unsplash.jpg" alt="фото">
-                            <div class="card__description">
-                                <h2 class="card__name block">Карачаево-Черкессия</h2>
-                                <button class="card__button-like" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img class="card__image" src="./images/kseniya-danilina-lBC1z4B17zI-unsplash.jpg" alt="фото">
-                            <div class="card__description">
-                                <h2 class="card__name block">Дагестан</h2>
-                                <button class="card__button-like" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img class="card__image" src="./images/andrey-svistunov-lSe8g99Q6xU-unsplash.jpg" alt="фото">
-                            <div class="card__description">
-                                <h2 class="card__name block">Карелия</h2>
-                                <button class="card__button-like" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img class="card__image" src="./images/shapovalow-QevSXeMJFPM-unsplash.jpg" alt="фото">
-                            <div class="card__description">
-                                <h2 class="card__name block">Крым</h2>
-                                <button class="card__button-like" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img class="card__image" src="./images/daniil-silantev-4RUjxiSK23M-unsplash.jpg" alt="фото">
-                            <div class="card__description">
-                                <h2 class="card__name block">Урал</h2>
-                                <button class="card__button-like" type="button"></button>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-                <div class="popup">
-                    <form class="popup__window" name="change_profile">
-                        <button class="popup__close-button" type="button"> </button>
-                        <h2 class="popup__header">Редактировать профиль</h2>
-                        <input id="nameInput" class="popup__input-text popup__input-text_field_name" placeholder="Жак-Ив Кусто" type="text"> 
-                        <input id="jobInput" class="popup__input-text popup__input-text_field_job" placeholder="Исследователь океана" type="text">
-                        <button class="popup__save-button" type="submit">Сохранить</button>
-                    </form>
                 </div>
-            </main>
-            <footer class="footer">
-                 <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>
-            </footer>
-        </div>
+                <button class="profile__add-button" type="button"></button>
+            </section>
+            <section class="cards">
+                <ul class="cards__table">
+                    <li class="card">
+                        <img class="card__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="фото">
+                        <div class="card__description">
+                            <h2 class="card__name block">Домбай</h2>
+                            <button class="card__button-like" type="button"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="./images/aisvri-3XPdegJ-LOU-unsplash.jpg" alt="фото">
+                        <div class="card__description">
+                            <h2 class="card__name block">Карачаево-Черкессия</h2>
+                            <button class="card__button-like" type="button"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="./images/kseniya-danilina-lBC1z4B17zI-unsplash.jpg" alt="фото">
+                        <div class="card__description">
+                            <h2 class="card__name block">Дагестан</h2>
+                            <button class="card__button-like" type="button"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="./images/andrey-svistunov-lSe8g99Q6xU-unsplash.jpg" alt="фото">
+                        <div class="card__description">
+                            <h2 class="card__name block">Карелия</h2>
+                            <button class="card__button-like" type="button"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="./images/shapovalow-QevSXeMJFPM-unsplash.jpg" alt="фото">
+                        <div class="card__description">
+                            <h2 class="card__name block">Крым</h2>
+                            <button class="card__button-like" type="button"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="./images/daniil-silantev-4RUjxiSK23M-unsplash.jpg" alt="фото">
+                        <div class="card__description">
+                            <h2 class="card__name block">Урал</h2>
+                            <button class="card__button-like" type="button"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <div class="popup">
+                <form class="popup__window" name="change_profile">
+                    <button class="popup__close-button" type="button"> </button>
+                    <h2 class="popup__header">Редактировать профиль</h2>
+                    <input id="nameInput" class="popup__input-text popup__input-text_field_name" placeholder="Жак-Ив Кусто" type="text"> 
+                    <input id="jobInput" class="popup__input-text popup__input-text_field_job" placeholder="Исследователь океана" type="text">
+                    <button class="popup__save-button" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </main>
+        <footer class="footer">
+                <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>
+        </footer>
         <script src="./scripts/index.js"></script>
     </body>
 </html>
