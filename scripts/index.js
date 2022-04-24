@@ -45,9 +45,8 @@
       let cardName = cardArray[i].querySelector('.card__name');
       console.log(cardName);
       cardName.textContent = initialCards[i].name;
-     }
-    
-     }
+      }
+    }
 
 
 
