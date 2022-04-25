@@ -38,17 +38,18 @@
      console.log(cardsTable);
      const cardArray = document.querySelectorAll('.card');
      console.log(cardArray);
-     for (let i = 0; i<cardArray.length; i++ ){
-      let cardIMG = cardArray[i].querySelector('.card__image');
-      console.log(cardIMG);
-      cardIMG.src = initialCards[i].link;
-      let cardName = cardArray[i].querySelector('.card__name');
-      console.log(cardName);
-      cardName.textContent = initialCards[i].name;
+     for (let i = 0; i < 6; i++){
+      cardsTable.append(createCard(initialCards[i].link,initialCards[i].name));
       }
     }
 
-
+  function createCard(cardURL, cardName){
+    const templateCard = document.querySelector('#card-template');
+    const card = templateCard.content.querySelector('.card').cloneNode(true);
+    card.querySelector('.card__image').src = cardURL;
+    card.querySelector('.card__name').textContent = cardName;
+    return card;
+    }
 
  function openPopup(){
      popupElement.classList.add('popup_opened');
