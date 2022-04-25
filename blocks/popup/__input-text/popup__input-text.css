@@ -1,13 +1,13 @@
 .popup__input-text{
     margin: 17px 36px 0;
     width: 358px;
-    font-family: 'Inter';
+    font-family: 'Inter', 'Helvetica', 'sans-serif';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     border: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     height: 40px;
 }
 
@@ -16,5 +16,4 @@
         margin: 17px 22px 0;
         width: calc(100vw - 82px);
     }
-    
 }
