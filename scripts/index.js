@@ -39,7 +39,7 @@
  let jobField = document.querySelector('.profile__job');
  const cardsTable = document.querySelector('.cards__table');
 
- function onLoadWindow(){
+  function onLoadWindow(){
      for (let i = 0; i < 6; i++){
       cardsTable.append(createCard(initialCards[i].link,initialCards[i].name));
       }
@@ -51,10 +51,15 @@
     const card = templateCard.content.querySelector('.card').cloneNode(true);
     card.querySelector('.card__image').src = cardURL;
     card.querySelector('.card__name').textContent = cardName;
+    card.querySelector('.card__button-like').addEventListener('click',()=>{ changeStateButtonLike(card.querySelector('.card__button-like'))});
     return card;
     }
 
- function openPopup(button){
+    function changeStateButtonLike(element){
+    element.classList.toggle('card__button-like_state_active');
+    }
+
+  function openPopup(button){
      
      document.addEventListener('keyup', onDocumentKeyUp); 
      if(button === 'editButton'){
@@ -77,9 +82,6 @@
      addCardPopup.classList.remove('popup_opened');
      document.removeEventListener('keyup', onDocumentKeyUp);    
  }
- function closePopup_addCard(){
-  addCardPopup.classList.remove('popup_opened');
- }
 
  function onDocumentKeyUp(event){
     if(event.code === 'Escape'){
@@ -101,10 +103,6 @@
 function formSubmitAddCard(evt){
   evt.preventDefault();
   const newCard = createCard(UrlCard.value, nameCardInput.value);
-  console.log(cardsTable);
-  Array.from(cardsTable);
-  console.log(typeof(cardsTable));
-  console.log(newCard);
   cardsTable.prepend(newCard);
   closePopup();
 }
@@ -116,6 +114,6 @@ function formSubmitAddCard(evt){
  formElement.addEventListener('submit', formSubmitHandler);
  formElementAddCard.addEventListener('submit', formSubmitAddCard);
 
- closeButton_addCard.addEventListener('click',closePopup_addCard);
+ closeButton_addCard.addEventListener('click',closePopup);
 
  
