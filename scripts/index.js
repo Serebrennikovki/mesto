@@ -52,6 +52,7 @@
     card.querySelector('.card__image').src = cardURL;
     card.querySelector('.card__name').textContent = cardName;
     card.querySelector('.card__button-like').addEventListener('click',()=>{ changeStateButtonLike(card.querySelector('.card__button-like'))});
+    card.querySelector('.card__button-del').addEventListener('click', ()=>{card.remove();});
     return card;
     }
 
