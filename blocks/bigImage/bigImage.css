@@ -1,0 +1,4 @@
+.bigImage{
+    display: flex;
+    flex-direction: column;
+}
