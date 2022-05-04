@@ -3,7 +3,7 @@
  const closeButton = document.querySelector('.popup__close-button');
  const addButton = document.querySelector('.profile__add-button ');
  const addCardPopup = document.getElementById('addCard');
- const closeButton_addCard = addCardPopup.querySelector('.popup__close-button'); 
+ const closeButtonAddCard = addCardPopup.querySelector('.popup__close-button'); 
  const initialCards = [{
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -38,6 +38,8 @@
  let nameField =  document.querySelector('.profile__name');
  let jobField = document.querySelector('.profile__job');
  const cardsTable = document.querySelector('.cards__table');
+ const imagePopup = document.getElementById('bigImage');
+ const closeButton_imagePopup = document.querySelector('.bigImage__button-close');
 
   function onLoadWindow(){
      for (let i = 0; i < 6; i++){
@@ -53,15 +55,21 @@
     card.querySelector('.card__name').textContent = cardName;
     card.querySelector('.card__button-like').addEventListener('click',()=>{ changeStateButtonLike(card.querySelector('.card__button-like'))});
     card.querySelector('.card__button-del').addEventListener('click', ()=>{card.remove()});
+    card.querySelector('.card__image').addEventListener('click',()=>{openPopupImage(cardURL, cardName)});
     return card;
     }
 
     function changeStateButtonLike(element){
     element.classList.toggle('card__button-like_state_active');
     }
-
-  function openPopup(button){
-     
+    function openPopupImage(imageURl, imageName){
+      console.log('1');
+      document.addEventListener('keyup', onDocumentKeyUp);
+      imagePopup.classList.add('popup_opened');
+      imagePopup.querySelector('.bigImage__img').src = imageURl;
+      imagePopup.querySelector('.bigImage__name').textContent = imageName;
+    }
+    function openPopup(button){ 
      document.addEventListener('keyup', onDocumentKeyUp); 
      if(button === 'editButton'){
       popupElement.classList.add('popup_opened');
@@ -70,9 +78,7 @@
      }
      else {
       const addCardPopup = document.getElementById('addCard');
-      console.log(addCardPopup);
       addCardPopup.classList.add('popup_opened');
-      console.log(addCardPopup.classList);
       document.addEventListener('keyup', onDocumentKeyUp);
      }
      
@@ -81,6 +87,7 @@
  function closePopup(){
      popupElement.classList.remove('popup_opened');
      addCardPopup.classList.remove('popup_opened');
+     imagePopup.classList.remove('popup_opened');
      document.removeEventListener('keyup', onDocumentKeyUp);    
  }
 
@@ -111,10 +118,10 @@ function formSubmitAddCard(evt){
  document.addEventListener("DOMContentLoaded", onLoadWindow);
  editButton.addEventListener('click',() => openPopup('editButton'));
  addButton.addEventListener('click', () => openPopup('addbutton'));
- closeButton.addEventListener('click', closePopup);
+ /*closeButton.addEventListener('click', closePopup);*/
  formElement.addEventListener('submit', formSubmitHandler);
  formElementAddCard.addEventListener('submit', formSubmitAddCard);
-
- closeButton_addCard.addEventListener('click',closePopup);
+ closeButton_imagePopup.addEventListener('click', closePopup);
+ closeButtonAddCard.addEventListener('click',closePopup);
 
  
