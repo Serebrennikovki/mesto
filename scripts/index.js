@@ -41,34 +41,34 @@
  const imagePopup = document.getElementById('bigImage');
  const closeButton_imagePopup = document.querySelector('.bigImage__button-close');
 
-  function onLoadWindow(){
-     for (let i = 0; i < 6; i++){
-      cardsTable.append(createCard(initialCards[i].link,initialCards[i].name));
-      }
-      return cardsTable;
-    }
+ function onLoadWindow(){
+  for (let i = 0; i < 6; i++){
+    cardsTable.append(createCard(initialCards[i].link,initialCards[i].name));
+  }
+  return cardsTable;
+}
 
-  function createCard(cardURL, cardName){
-    const templateCard = document.querySelector('#card-template');
-    const card = templateCard.content.querySelector('.card').cloneNode(true);
-    card.querySelector('.card__image').src = cardURL;
-    card.querySelector('.card__name').textContent = cardName;
-    card.querySelector('.card__button-like').addEventListener('click',()=>{ changeStateButtonLike(card.querySelector('.card__button-like'))});
-    card.querySelector('.card__button-del').addEventListener('click', ()=>{card.remove()});
-    card.querySelector('.card__image').addEventListener('click',()=>{openPopupImage(cardURL, cardName)});
-    return card;
-    }
+ function createCard(cardURL, cardName){
+  const templateCard = document.querySelector('#card-template');
+  const card = templateCard.content.querySelector('.card').cloneNode(true);
+  card.querySelector('.card__image').src = cardURL;
+  card.querySelector('.card__name').textContent = cardName;
+  card.querySelector('.card__button-like').addEventListener('click',()=>{ changeStateButtonLike(card.querySelector('.card__button-like'))});
+  card.querySelector('.card__button-del').addEventListener('click', ()=>{card.remove()});
+  card.querySelector('.card__image').addEventListener('click',()=>{openPopupImage(cardURL, cardName)});
+  return card;
+}
 
-    function changeStateButtonLike(element){
-    element.classList.toggle('card__button-like_state_active');
-    }
-    function openPopupImage(imageURl, imageName){
-      console.log('1');
-      document.addEventListener('keyup', onDocumentKeyUp);
-      imagePopup.classList.add('popup_opened');
-      imagePopup.querySelector('.bigImage__img').src = imageURl;
-      imagePopup.querySelector('.bigImage__name').textContent = imageName;
-    }
+ function changeStateButtonLike(element){
+  element.classList.toggle('card__button-like_state_active');
+  }
+  function openPopupImage(imageURl, imageName){
+    document.addEventListener('keyup', onDocumentKeyUp);
+    imagePopup.classList.add('popup_opened');
+    imagePopup.querySelector('.bigImage__img').src = imageURl;
+    imagePopup.querySelector('.bigImage__name').textContent = imageName;
+}
+
     function openPopup(button){ 
      document.addEventListener('keyup', onDocumentKeyUp); 
      if(button === 'editButton'){
@@ -94,7 +94,6 @@
  function onDocumentKeyUp(event){
     if(event.code === 'Escape'){
         closePopup();
-        closePopup_addCard();
     }
      else if(event.code === 'Enter'){
         formSubmitHandler();
