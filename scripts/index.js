@@ -44,8 +44,7 @@ function changeStateButtonLike(element){
 }
 
 function openPopupImage(imageURl, imageName){
-  document.addEventListener('keyup', onDocumentKeyUp);
-  popupBigImage.classList.add('popup_opened');
+  openPopup(popupBigImage);
   imageOpened.src = imageURl;
   imageOpened.alt = imageName;
   nameImageOpened.textContent = imageName;
@@ -65,14 +64,7 @@ function submitFormHandler(evt){
   evt.preventDefault();
   nameField.textContent = nameInput.value;
   jobField.textContent = jobInput.value;
-  closePopup();
-}
-  
-function submitFormAddCard(evt){
-  evt.preventDefault();
-  const newCard = createCard(UrlCard.value, nameCardInput.value);
-  cardsTable.prepend(newCard);
-  closePopup();
+  closePopup(popupEditProfile);
 }
 
 function openPopup(namePopup){
@@ -95,7 +87,7 @@ function submitFormAddCard(evt){
   evt.preventDefault();
   const newCard = createCard(UrlCard.value, nameCardInput.value);
   cardsTable.prepend(newCard);
-  closePopup();
+  closePopup(popupAddCard);
 }
    
 document.addEventListener("DOMContentLoaded", onLoadWindow);
