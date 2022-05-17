@@ -29,20 +29,33 @@
                 </ul>
             </section>
             <div class="popup popup_function_editPtofile">
-                <form class="popup__window" name="change_profile">
+                <form class="popup__window" name="changeProfile">
                     <button class="popup__close-button" type="button"> </button>
                     <h2 class="popup__header">Редактировать профиль</h2>
-                    <input id="nameInput" class="popup__input-text popup__input-text_field_name" placeholder="Жак-Ив Кусто" type="text"> 
-                    <input id="jobInput" class="popup__input-text popup__input-text_field_job" placeholder="Исследователь океана" type="text">
+                    <div class="form__input-container">
+                        <input required id="nameInput" class="popup__input-text popup__input-text_field_name" placeholder="Жак-Ив Кусто" type="text" minlength="2" maxlength="40"> 
+                        <span class="form__input-error" id="nameInput-error">FDF</span>
+                    </div>
+                    <div class = "form__input-container">
+                        <input required id="jobInput" class="popup__input-text popup__input-text_field_job" placeholder="Исследователь океана" type="text" minlength="2" maxlength="200">
+                        <span class="form__input-error" id="jobInput-error">23323DW1111111111111111111111111111111111111111111111111111111111111111111111</span>
+                    </div>
                     <button class="popup__save-button" type="submit">Сохранить</button>
+                    
                 </form>
             </div>
             <div class="popup popup_function_addCard" id="addCard">
-                <form class="popup__window" name="change_profile">
+                <form class="popup__window" name="addCard">
                     <button class="popup__close-button" type="button"> </button>
                     <h2 class="popup__header">Новое место</h2>
-                    <input id="nameCardInput" class="popup__input-text popup__input-text_field_name" placeholder="Название" type="text"> 
-                    <input id="URLInput" class="popup__input-text popup__input-text_field_job" placeholder="Ссылка на картинку" type="url">
+                    <div class = "form__input-container">
+                        <input id="nameCardInput" class="popup__input-text popup__input-text_field_name" placeholder="Название" type="text"> 
+                        <span class="form__input-error" id="nameCardInput-error">FDF</span>
+                    </div>
+                    <div class = "form__input-container">
+                        <input id="URLInput" class="popup__input-text popup__input-text_field_job" placeholder="Ссылка на картинку" type="url">
+                        <span class="form__input-error" id="URLInput-error">FDF</span>
+                    </div>
                     <button class="popup__save-button" type="submit">Добавить</button>
                 </form>
             </div>
