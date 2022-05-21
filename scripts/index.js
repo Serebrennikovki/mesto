@@ -4,8 +4,6 @@ const buttonCloseEditProfile = popupEditProfile.querySelector('.popup__close-but
 const buttonAddCard = document.querySelector('.profile__add-button ');
 const popupAddCard = document.querySelector('.popup_function_addCard');
 const buttonCloseAddCard = popupAddCard.querySelector('.popup__close-button'); 
-/*const formElement = document.forms.changeProfile;
-const formElementAddCard = popupAddCard.querySelector('.popup__window')*/
 const nameInput = document.querySelector('.popup__input-text_field_name');
 const jobInput = document.querySelector('.popup__input-text_field_job');
 const nameCardInput = document.getElementById('nameCardInput');
@@ -40,35 +38,6 @@ function createCard(cardURL, cardName){
   cardImage.addEventListener('click',()=>{openPopupImage(cardURL, cardName)});
   return card;
 }
-
- function handleForm(event){
-   event.preventDefault();
-   const currentForm = event.currentTarget;
-   const currentElement = event.target;
-   const submitButton = currentForm.querySelector('.popup__save-button');
-   validateInput(currentElement);
-   if(currentForm.checkValidity()){
-    submitButton.disable = false;
-    submitButton.classList.remove('popup__save-button_state_disable');
-    submitButton.classList.add('popup__save-button_state_active');
-   }
-   else {
-    submitButton.disable = true;
-    submitButton.classList.add('popup__save-button_state_disable');
-    submitButton.classList.remove('popup__save-button_state_active');
-   }
-}
-
- function validateInput(element){
-   const errorMessage = document.querySelector(`#${element.id}-error`);
-   console.log(errorMessage);
-   console.log(element);
-
-   errorMessage.textContent = element.validationMessage;
-   console.log(errorMessage.textContent);
-   return element.checkValidity();
- }
-
 
 function changeStateButtonLike(element){
   element.classList.toggle('card__button-like_state_active');
@@ -130,8 +99,3 @@ formAddCard.addEventListener('submit', submitFormAddCard);
 buttonCloseBigImage.addEventListener('click', ()=>{closePopup(popupBigImage)});
 buttonCloseAddCard.addEventListener('click',()=>{closePopup(popupAddCard)});
 buttonCloseEditProfile.addEventListener('click',()=>{closePopup(popupEditProfile)});
-formAddCard.addEventListener('input', handleForm);
-formChangeProfile.addEventListener('input', handleForm);
-
-
- 
