@@ -10,4 +10,5 @@
     line-height: 15px;
     color: #FF0000;
     overflow-wrap: break-word;
+    z-index: 10;
 }

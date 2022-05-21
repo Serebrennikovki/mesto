@@ -1,0 +1,8 @@
+.popup__save-button_state_active{
+    background-color: black;
+    color:white;
+    cursor: pointer;
+}
+.popup__save-button_state_active:hover{
+    opacity: 0.8;
+}
