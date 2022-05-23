@@ -30,7 +30,7 @@
             </section>
             <div class="popup popup_function_editPtofile">
                 <div class="popup__overlay"></div>
-                <form class="popup__window" name="changeProfile">
+                <form novalidate class="popup__window" name="changeProfile">
                     <button class="popup__close-button" type="button"> </button>
                     <h2 class="popup__header">Редактировать профиль</h2>
                     <div class="popup__container">
@@ -46,7 +46,7 @@
             </div>
             <div class="popup popup_function_addCard" id="addCard">
                 <div class="popup__overlay"></div>
-                <form class="popup__window" name="addCard">
+                <form novalidate class="popup__window" name="addCard">
                     <button class="popup__close-button" type="button"></button>
                     <h2 class="popup__header">Новое место</h2>
                     <div class = "popup__container">
@@ -57,7 +57,7 @@
                         <input required id="URLInput" class="popup__input-text popup__input-text_field_job" placeholder="Ссылка на картинку" type="url">
                         <span class="popup__input-error" id="URLInput-error"></span>
                     </div>
-                    <button class="popup__save-button popup__save-button_state_disable" type="submit">Добавить</button>
+                    <button disabled="true" class="popup__save-button popup__save-button_state_disable" type="submit">Добавить</button>
                 </form>
             </div>
             <div class="popup popup_function_bigImage">

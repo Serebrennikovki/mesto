@@ -70,12 +70,13 @@ function submitFormEditProfile(evt){
 function openPopup(namePopup){
   namePopup.classList.add('popup_opened');
   document.addEventListener('keyup', onDocumentKeyUp);
-  namePopup.querySelector('.popup__overlay').addEventListener('click', () => {closePopup(namePopup);})
+  namePopup.querySelector('.popup__overlay').addEventListener('click', () => {closePopup(namePopup);});
 }
 
 function closePopup(namePopup){
   namePopup.classList.remove('popup_opened');
-  document.removeEventListener('keyup', onDocumentKeyUp);  
+  document.removeEventListener('keyup', onDocumentKeyUp);
+  namePopup.querySelector('.popup__overlay').removeEventListener('click', () => {closePopup(namePopup);});  
 }
 
 function onDocumentKeyUp(event){
@@ -88,6 +89,7 @@ function submitFormAddCard(evt){
   evt.preventDefault();
   const newCard = createCard(UrlCard.value, nameCardInput.value);
   cardsTable.prepend(newCard);
+  evt.target.reset();// попап после добавление одной карточки должен закрываться, а открывая поля чистые
   closePopup(popupAddCard);
 }
    

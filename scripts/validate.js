@@ -1,30 +1,70 @@
-const handleForm = (event) =>{
-    event.preventDefault();
-    const currentForm = event.currentTarget;
-    const currentElement = event.target;
-    const submitButton = currentForm.querySelector('.popup__save-button');
-    validateInput(currentElement);
-    changeButtonState(submitButton, currentForm.checkValidity());
+ const objectConfig = {
+  formSelector: '.popup__window',
+  inputSelector: '.popup__input-text',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_state_disable',
+  activeButtonClass: 'popup__save-button_state_active',
  }
 
- const  validateInput = (element) => {
-    const errorMessage = document.querySelector(`#${element.id}-error`);
-    errorMessage.textContent = element.validationMessage;
-    return element.checkValidity();
+  const showInputError = (elementForm, elementInput, errorMessage) => {
+    console.log(12);
+    const elementSpan = elementForm.querySelector(`#${elementInput.id}-error`);
+    console.log(elementSpan);
+    console.log(errorMessage);
+    elementSpan.textContent = errorMessage;
+  } 
+
+  const hideInputError = (elementForm, elementInput) => {
+    elementSpan = elementForm.querySelector(`#${elementInput.id}-error`);
+    elementSpan.textContent = '';
   }
 
-  const changeButtonState = (button, isFormValid) => {
-    if(isFormValid){
-        button.disable = false;
-        button.classList.remove('popup__save-button_state_disable');
-        button.classList.add('popup__save-button_state_active');
+  const isValidInput = (elementForm, elementInput) =>{
+    console.log(elementInput);
+    if (!elementInput.validity.valid){
+      showInputError(elementForm, elementInput, elementInput.validationMessage);
+    } else{
+      hideInputError(elementForm, elementInput);
+    }
+  }
+
+  const enableValidation = (сonfig) => {
+    const listForm = Array.from(document.querySelectorAll(сonfig.formSelector));
+    console.log(listForm);
+    listForm.forEach((elementForm) => {
+      elementForm.addEventListener('submit', (evt)=>{
+        evt.preventDefault;
+      })
+      setEventListeners(elementForm, сonfig.inputSelector,  сonfig.submitButtonSelector, сonfig.activeButtonClass, сonfig.inactiveButtonClass);
+    })
+  }
+
+  const setEventListeners = (elementForm, classInput, classButtonSubmit, classButtonActive, classButtonDisable) => {
+    const listInput = Array.from(elementForm.querySelectorAll(classInput));
+    const elementButton = elementForm.querySelector(classButtonSubmit);
+    listInput.forEach((inputElement) => { inputElement.addEventListener('input', () => {
+      isValidInput(elementForm, inputElement); 
+      changeButtonState(elementButton, listInput, classButtonActive, classButtonDisable);}
+      )} );
+  }
+
+  const hasInvalidInput = (listInput) => {
+    return listInput.some((elementInput)=> {
+      return !elementInput.validity.valid;
+    })
+  }
+
+ const changeButtonState = (button, listInput, classButtonActive, classButtonDisable) => {
+   console.log(hasInvalidInput(listInput));
+    if(!hasInvalidInput(listInput)){
+        button.disabled = false;
+        button.classList.remove(classButtonDisable);
+        button.classList.add(classButtonActive);
        }
        else {
-        button.disable = true;
-        button.classList.add('popup__save-button_state_disable');
-        button.classList.remove('popup__save-button_state_active');
+        button.disabled = true;
+        button.classList.add(classButtonDisable);
+        button.classList.remove(classButtonActive);
        }
   }
-
-formAddCard.addEventListener('input', handleForm);
-formChangeProfile.addEventListener('input', handleForm);
+  enableValidation(objectConfig);
