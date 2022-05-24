@@ -7,7 +7,7 @@ const buttonCloseAddCard = popupAddCard.querySelector('.popup__close-button');
 const nameInput = document.querySelector('.popup__input-text_field_name');
 const jobInput = document.querySelector('.popup__input-text_field_job');
 const nameCardInput = document.querySelector('#nameCardInput');
-const UrlCard = document.querySelector('#URLInput');
+const urlCard = document.querySelector('#URLInput');
 const nameField =  document.querySelector('.profile__name');
 const jobField = document.querySelector('.profile__job');
 const cardsTable = document.querySelector('.cards__table');
@@ -55,7 +55,9 @@ function openPopupAddCard(){
 }
 
 function clickOverlay(evt){
-  closePopup(evt.target.parentNode);
+  if(evt.target.classList.contains('popup__overlay')){
+    closePopup(evt.currentTarget);
+  }
 }
 
 function openPopupEditProfile(){  
@@ -74,13 +76,13 @@ function submitFormEditProfile(evt){
 function openPopup(namePopup){
   namePopup.classList.add('popup_opened');
   document.addEventListener('keyup', onDocumentKeyUp);
-  namePopup.querySelector('.popup__overlay').addEventListener('click', clickOverlay);
+  namePopup.addEventListener('click', clickOverlay);
 }
 
 function closePopup(namePopup){
   namePopup.classList.remove('popup_opened');
   document.removeEventListener('keyup', onDocumentKeyUp);
-  namePopup.querySelector('.popup__overlay').removeEventListener('click', clickOverlay);  
+  namePopup.removeEventListener('click', clickOverlay);  
 }
 
 function onDocumentKeyUp(event){
@@ -91,10 +93,10 @@ function onDocumentKeyUp(event){
 
 function submitFormAddCard(evt){
   evt.preventDefault();
-  const newCard = createCard(UrlCard.value, nameCardInput.value);
+  const newCard = createCard(urlCard.value, nameCardInput.value);
   cardsTable.prepend(newCard);
-  evt.target.reset();// попап после добавление одной карточки закрывается!!!! Зачем блокировать?!
-  changeButtonState(evt.target.parentNode.querySelector('.popup__save-button'), [UrlCard, nameCardInput], objectConfig.inactiveButtonClass);
+  evt.target.reset();
+  changeButtonState(evt.currentTarget.querySelector('.popup__save-button'), Array.from(evt.currentTarget.querySelectorAll('.popup__input-text')), objectConfig.inactiveButtonClass);
   closePopup(popupAddCard);//
 }
    
