@@ -21,34 +21,25 @@ const formChangeProfile = document.forms.changeProfile;
 
 
 function onLoadWindow(){
-  for (let i = 0; i < initialCards.length; i++){
-    cardsTable.append(createCard(initialCards[i].link,initialCards[i].name));
-  }
+  initialCards.forEach((item)=>{
+    cardsTable.append(createCard(item.name,item.link));
+  })
   return cardsTable;
 }
 
-function createCard(cardURL, cardName){
-  const card = templateCard.content.querySelector('.card').cloneNode(true);
-  const cardImage = card.querySelector('.card__image');
-  cardImage.src = cardURL;
-  cardImage.alt = cardName;
-  card.querySelector('.card__name').textContent = cardName;
-  card.querySelector('.card__button-like').addEventListener('click',()=>{ changeStateButtonLike(card.querySelector('.card__button-like'))});
-  card.querySelector('.card__button-del').addEventListener('click', ()=>{card.remove()});
-  cardImage.addEventListener('click',()=>{openPopupImage(cardURL, cardName)});
-  return card;
+function createCard(cardName, cardURL){
+  const card = new ClassCard(cardName, cardURL);
+  const cardView = card.render();
+  return cardView;
 }
 
-function changeStateButtonLike(element){
-  element.classList.toggle('card__button-like_state_active');
-}
 
 function openPopupImage(imageURl, imageName){
   openPopup(popupBigImage);
   imageOpened.src = imageURl;
   imageOpened.alt = imageName;
   nameImageOpened.textContent = imageName;
-}
+} 
 
 function openPopupAddCard(){
   openPopup(popupAddCard);
@@ -93,7 +84,7 @@ function onDocumentKeyUp(event){
 
 function submitFormAddCard(evt){
   evt.preventDefault();
-  const newCard = createCard(urlCard.value, nameCardInput.value);
+  const newCard = createCard(nameCardInput.value, urlCard.value);
   cardsTable.prepend(newCard);
   evt.target.reset();
   changeButtonState(evt.currentTarget.querySelector('.popup__save-button'), Array.from(evt.currentTarget.querySelectorAll('.popup__input-text')), objectConfig.inactiveButtonClass);
