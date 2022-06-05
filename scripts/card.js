@@ -1,12 +1,12 @@
-class ClassCard{
-    constructor(name, url){
+class Card{
+    constructor(name, url, selectorTemplate){
         this._name = name;
         this._url = url;
-       // this._method = method;
+        this._template = selectorTemplate;
     }
 
     _getTemplate(){
-        const cardElement = document.querySelector('#card-template')
+        const cardElement = document.querySelector(this._template)
         .content
         .querySelector('.card')
         .cloneNode(true);

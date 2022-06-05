@@ -22,3 +22,10 @@ const initialCards = [{
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }];
+
+  const objectConfig = {
+    formSelector: '.popup__window',
+    inputSelector: '.popup__input-text',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_state_disable',
+   }
