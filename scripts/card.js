@@ -1,4 +1,4 @@
-class Card{
+export default class Card{
     constructor(name, url, selectorTemplate){
         this._name = name;
         this._url = url;
@@ -33,7 +33,7 @@ class Card{
     }
 
     _setEventListeners(){
-        this._element.querySelector('.card__button-like').addEventListener('click', () => {this._handleButtonLike()} );
+        this._element.querySelector('.card__button-like').addEventListener('click', () => {this._handleButtonLike()});
         this._element.querySelector('.card__button-del').addEventListener('click', ()=>{this._deleteClickHandler()});
     }
 }

@@ -1,4 +1,4 @@
-class FormValidator{
+export default class FormValidator{
     constructor(elementForm, config){
          this._form  = elementForm;
          this._window = config.formSelector;
@@ -15,7 +15,7 @@ class FormValidator{
         this._form.querySelector(`#${this._element.id}-error`).textContent = '';
     }
 
-    _isValidInput () {   //проверка валиден ли вход
+    _isValidInput () {   
         if (!this._element.validity.valid){
           this._showInputError();
         } else{

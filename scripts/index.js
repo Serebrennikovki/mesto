@@ -1,5 +1,5 @@
-//import FormValidator from "./FormValidator.js";
-//import Card from "./card.js";
+import FormValidator from "./formValidator.js";
+import Card from "./card.js";
 const popupEditProfile = document.querySelector('.popup_function_editPtofile');
 const buttonEditProfile = document.querySelector('.profile__change-button');
 const buttonCloseEditProfile = popupEditProfile.querySelector('.popup__close-button');
@@ -21,7 +21,6 @@ const templateCard = '#card-template';
 const formAddCard = document.forms.addCard;
 const formChangeProfile = document.forms.changeProfile;
 
-
 function onLoadWindow(){
   initialCards.forEach((item)=>{
     cardsTable.append(createCard(item.name,item.link,templateCard));
@@ -33,6 +32,7 @@ function onLoadWindow(){
 function createCard(cardName, cardURL,templateSelector){
   const card = new Card(cardName, cardURL, templateSelector);
   const cardView = card.render();
+  cardView.querySelector('.card__image').addEventListener('click', ()=>{openPopupImage(cardURL,cardName)});
   return cardView;
 }
 
@@ -55,10 +55,10 @@ function clickOverlay(evt){
 }
 
 function setValidate(){
-  validateAddCard = new FormValidator (formAddCard, objectConfig);
+  const validateAddCard = new FormValidator (formAddCard, objectConfig);
   validateAddCard.enableValidation();
 
-  validateChangeProfile = new FormValidator (formChangeProfile, objectConfig);
+  const validateChangeProfile = new FormValidator (formChangeProfile, objectConfig);
   validateChangeProfile.enableValidation();
 }
 
