@@ -23,8 +23,9 @@ export default class FormValidator{
         }
       }
     _setEvenListeners(){
-        this._listInput = Array.from(this._form.querySelectorAll('.popup__input-text'));
-        this._listInput.forEach((inputElement) => { inputElement.addEventListener('input', () => {
+        this._inputList = Array.from(this._form.querySelectorAll(this._selectorInput));
+        this._button = this._form.querySelector(this._selectorSubmitButton);
+        this._inputList.forEach((inputElement) => { inputElement.addEventListener('input', () => {
             this._element = inputElement;
             this._isValidInput(); 
             this.changeButtonState();}
@@ -32,13 +33,12 @@ export default class FormValidator{
         }
 
     _hasInvalidInput () {
-          return this._listInput.some((elementInput)=> {
+          return this._inputList.some((elementInput)=> {
             return !elementInput.validity.valid;
           })
         }
 
     changeButtonState(){
-      this._button = this._form.querySelector(this._selectorSubmitButton);
       if(!this._hasInvalidInput()){
         this._button.disabled = false;
         this._button.classList.remove(this._classInactiveButton);

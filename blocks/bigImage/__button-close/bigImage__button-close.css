@@ -1,7 +1,4 @@
 .bigImage__button-close{
-    font-size: 0;
-    border: none;
-    padding: 0;
     margin: 0 -40px 8px 0;
     height: 32px;
     width: 32px;
@@ -11,10 +8,6 @@
     background-size: contain;
     align-self: end;
     position: relative;
-}
-
-.bigImage__button-close:hover{
-    opacity: 0.6;
 }
 
 @media screen and (max-width: 500px) {
