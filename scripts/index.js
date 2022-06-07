@@ -95,7 +95,7 @@ function handleKeyEscape(event){
 
 function submitFormAddCard(evt){
   evt.preventDefault();
-  const newCard = createCard(nameCardInput.value, urlCard.value, templateCard);
+  const newCard = createCard(nameCardInput.value, urlCard.value, templateCard,openPopupImage);
   cardsTable.prepend(newCard);
   evt.target.reset();
   formValidators['addCard'].changeButtonState();
@@ -110,6 +110,5 @@ formAddCard.addEventListener('submit', submitFormAddCard);
 
 closeButtons.forEach((button) => { 
   const popup = button.closest('.popup');
-  console.log(popup);
   button.addEventListener('click', () => closePopup(popup));
 });
