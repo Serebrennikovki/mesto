@@ -1,5 +1,6 @@
 import FormValidator from "./formValidator.js";
 import Card from "./Card.js";
+import Section from "./Section.js";
 const popupEditProfile = document.querySelector('.popup_function_editPtofile');
 const buttonEditProfile = document.querySelector('.profile__change-button');
 const buttonAddCard = document.querySelector('.profile__add-button ');
@@ -11,6 +12,7 @@ const urlCard = document.querySelector('#URLInput');
 const nameField =  document.querySelector('.profile__name');
 const jobField = document.querySelector('.profile__job');
 const cardsTable = document.querySelector('.cards__table');
+const selectorCardstable = '.cards__table'; 
 const popupBigImage = document.querySelector('.popup_function_bigImage');
 const imageOpened =  popupBigImage.querySelector('.bigImage__img');
 const nameImageOpened =  popupBigImage.querySelector('.bigImage__name');
@@ -21,17 +23,19 @@ const formValidators = {};
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
 function onLoadWindow(){
-  initialCards.forEach((item)=>{
-    cardsTable.append(createCard(item.name,item.link,templateCard,openPopupImage));
-  })
+  addCardInCommonView(initialCards, createCard ,selectorCardstable);
   setValidate(objectConfig);
-  return cardsTable;
 }
 
-function createCard(cardName, cardURL,templateSelector, functionImage){
-  const card = new Card(cardName, cardURL, templateSelector, functionImage);
+function createCard(cardName, cardURL){
+  const card = new Card(cardName, cardURL, templateCard, openPopupImage);
   const cardView = card.render();
   return cardView;
+}
+
+function addCardInCommonView(dataArray, methodRender, selectorContainer){
+  const initialViewCards = new Section({ items:dataArray, renderer:methodRender },selectorContainer)
+  initialViewCards.renderer();
 }
 
 
@@ -95,8 +99,12 @@ function handleKeyEscape(event){
 
 function submitFormAddCard(evt){
   evt.preventDefault();
-  const newCard = createCard(nameCardInput.value, urlCard.value, templateCard,openPopupImage);
-  cardsTable.prepend(newCard);
+  const dataCard = {};
+  dataCard.name = nameCardInput.value;
+  dataCard.link = urlCard.value;
+  const arrayFormCard = [];
+  arrayFormCard[0] = dataCard;
+  addCardInCommonView(arrayFormCard, createCard ,selectorCardstable);
   evt.target.reset();
   formValidators['addCard'].changeButtonState();
   closePopup(popupAddCard);
