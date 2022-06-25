@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Место</title>
+    </head>
+    <body class="page">
+        <header class="header">
+            <img class="header__logo" src="<%=require('./images/Vector_logo.svg')%>" alt="лого">
+        </header>
+        <main class="page__content">
+            <section class="profile"> 
+                <div class="profile__author">
+                    <img class="profile__avatar" src="<%=require('./images/Avatar.png')%>" alt="портрет">
+                    <div class="profile__info">
+                        <div class="profile__text">
+                            <h1 class="profile__name block">Жак-Ив Кусто</h1>
+                            <p class="profile__job block">Исследователь океана</p>
+                        </div>
+                        <button class="profile__change-button" type="button"></button>  
+                    </div>
+                </div>
+                <button class="profile__add-button" type="button"></button>
+            </section>
+            <section class="cards">
+                <ul class="cards__table">
+                </ul>
+            </section>
+            <div class="popup popup_function_editPtofile">
+                <div class="popup__overlay"></div>
+                <form novalidate class="popup__window" name="changeProfile">
+                    <button class="popup__close-button popup__close-button_type_form" type="button"> </button>
+                    <h2 class="popup__header">Редактировать профиль</h2>
+                    <div class="popup__container">
+                        <input required id="nameInput" class="popup__input-text popup__input-text_field_name" placeholder="Жак-Ив Кусто" type="text" minlength="2" maxlength="40"> 
+                        <span class="popup__input-error" id="nameInput-error"></span>
+                    </div>
+                    <div class="popup__container">
+                        <input required id="jobInput" class="popup__input-text popup__input-text_field_job" placeholder="Исследователь океана" type="text" minlength="2" maxlength="200">
+                        <span class="popup__input-error" id="jobInput-error"></span>
+                    </div>
+                    <button class="popup__save-button popup__save-button_state_active" type="submit">Сохранить</button>  
+                </form>
+            </div>
+            <div class="popup popup_function_addCard" id="addCard">
+                <div class="popup__overlay"></div>
+                <form novalidate class="popup__window" name="addCard">
+                    <button class="popup__close-button popup__close-button_type_form" type="button"></button>
+                    <h2 class="popup__header">Новое место</h2>
+                    <div class = "popup__container">
+                        <input required id="nameCardInput" class="popup__input-text popup__input-text_field_name" placeholder="Название" type="text" minlength="2" maxlength="30"> 
+                        <span class="popup__input-error" id="nameCardInput-error"></span>
+                    </div>
+                    <div class ="popup__container">
+                        <input required id="URLInput" class="popup__input-text popup__input-text_field_job" placeholder="Ссылка на картинку" type="url">
+                        <span class="popup__input-error" id="URLInput-error"></span>
+                    </div>
+                    <button disabled="true" class="popup__save-button popup__save-button_state_disable" type="submit">Добавить</button>
+                </form>
+            </div>
+            <div class="popup popup_function_bigImage">
+                <div class="popup__overlay"></div>
+                <div class="bigImage">
+                    <button class="popup__close-button bigImage__button-close" type="button"></button>
+                    <img class="bigImage__img" src="<%=require("./images/kirill-pershin-1556355-unsplash.png")%>" alt="картинка">
+                    <h2 class="bigImage__name">Интересное место</h2>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+                <p class="footer__copyright">&COPY; 2022 Mesto Russia</p>
+        </footer>
+        <template class="card-template" id = 'card-template'>
+            <li class="card">
+                <img class="card__image" src="./images/daniil-silantev-4RUjxiSK23M-unsplash.jpg" alt="фото">
+                <button class="card__button-del" type="button"></button>
+                <div class="card__description">
+                    <h2 class="card__name block"></h2>
+                    <button class="card__button-like" type="button"></button>
+                </div>
+            </li> 
+        </template>
+    </body>
+</html>
