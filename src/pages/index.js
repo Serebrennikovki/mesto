@@ -66,14 +66,14 @@ function openPopupEditProfile(){
 
 function submitFormEditProfile(evt){
   evt.preventDefault();
-  const dataInputs = popupFormEditProfile._getInputValues();
+  const dataInputs = popupFormEditProfile.getInputValues();
   popupFormEditProfile.close();
   userInfo.setUserInfo( {data : dataInputs} );
 }
 
 function submitFormAddCard(evt){
   evt.preventDefault();
-  const data = popupFormNewCard._getInputValues();
+  const data = popupFormNewCard.getInputValues();
   const dataCard = {};
   dataCard.name = data[0];
   dataCard.link = data[1];
