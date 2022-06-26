@@ -55,4 +55,11 @@ export default class FormValidator{
       })
       this._setEvenListeners();
     }
+
+    resetValidation(){
+      this.changeButtonState();
+      this._inputList.forEach((inputElement)=>{
+        this._form.querySelector(`#${inputElement.id}-error`).textContent = '';
+      })
+    }
 }
