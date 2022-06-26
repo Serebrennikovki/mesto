@@ -10,22 +10,24 @@ const buttonEditProfile = document.querySelector('.profile__change-button');
 const buttonAddCard = document.querySelector('.profile__add-button ');
 const nameInput = document.querySelector('.popup__input-text_field_name');
 const jobInput = document.querySelector('.popup__input-text_field_job');
-const nameCardInput = document.querySelector('#nameCardInput');
-const urlCard = document.querySelector('#URLInput');
 const selectorName = '.profile__name';
 const selectorProfession = '.profile__job';
 const selectorCardstable = '.cards__table'; 
 const popupImage = new PicturePopup('.popup_function_bigImage');
+popupImage.setEventListeners();
 const popupFormNewCard = new PopupWithForm('.popup_function_addCard',submitFormAddCard);
+popupFormNewCard.setEventListeners();
 const popupFormEditProfile = new PopupWithForm( '.popup_function_editPtofile', submitFormEditProfile);
-const userInfo = new UserInfo(selectorName, selectorProfession );
+popupFormEditProfile.setEventListeners();
+const userInfo = new UserInfo( selectorName, selectorProfession );
 const templateCard = '#card-template';
 const formAddCard = document.forms.addCard;
 const formChangeProfile = document.forms.changeProfile;
 const formValidators = {};
+const containerViewCards = new Section({ renderer: createCard },selectorCardstable);
 
 function onLoadWindow(){
-  addCardInCommonView(initialCards, createCard, selectorCardstable);
+  containerViewCards.renderer({items:initialCards});
   setValidate(objectConfig);
 }
 
@@ -35,18 +37,13 @@ function createCard(cardName, cardURL){
   return cardView;
 }
 
-function addCardInCommonView(dataArray, methodRender, selectorContainer){
-  const initialViewCards = new Section({ items:dataArray, renderer:methodRender },selectorContainer)
-  initialViewCards.renderer();
-}
-
-
 function openPopupImage(imageURl, imageName){
   popupImage.open(imageURl,imageName );
 } 
 
 function openPopupAddCard(){
   popupFormNewCard.open();
+  formValidators['addCard'].resetValidation();
 } 
 
 function setValidate(config){
@@ -64,23 +61,25 @@ function openPopupEditProfile(){
   const dataUser = userInfo.getUserInfo();
   nameInput.value = dataUser[0];
   jobInput.value = dataUser[1];
+  formValidators['changeProfile'].resetValidation();
 }
 
 function submitFormEditProfile(evt){
   evt.preventDefault();
+  const dataInputs = popupFormEditProfile._getInputValues();
   popupFormEditProfile.close();
-  const dataEditProfile = popupFormEditProfile.data;
-  userInfo.setUserInfo( {data:dataEditProfile} );
+  userInfo.setUserInfo( {data : dataInputs} );
 }
 
 function submitFormAddCard(evt){
   evt.preventDefault();
+  const data = popupFormNewCard._getInputValues();
   const dataCard = {};
-  dataCard.name = nameCardInput.value;
-  dataCard.link = urlCard.value;
+  dataCard.name = data[0];
+  dataCard.link = data[1];
   const arrayFormCard = [];
   arrayFormCard[0] = dataCard;
-  addCardInCommonView(arrayFormCard, createCard ,selectorCardstable);
+  containerViewCards.renderer({items:arrayFormCard});
   evt.target.reset();
   formValidators['addCard'].changeButtonState();
   popupFormNewCard.close();
