@@ -42,3 +42,5 @@
 .popup__overlay{bottom:0;left:0;position:fixed;right:0;top:0;z-index:0}
 .popup__close-button_type_form{background:none;background-image:url(images/Close_Icon32px.svg);background-size:contain;cursor:pointer;height:32px;position:absolute;right:-40px;top:-40px;width:32px}@media screen and (max-width:500px){.popup__close-button_type_form{height:20px;right:0;top:-36px;width:20px}}
 
+
+/*# sourceMappingURL=main.dfc78216c5f42f3c364d.css.map*/
