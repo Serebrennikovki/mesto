@@ -41,6 +41,10 @@
 @import url(../blocks/popup/__save-button/_state_disable/popup__save-button_state_disable.css);
 @import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/popup/__close-button/_type_form/popup__close-button_type_form.css);
+@import url(../blocks/card/__amount-like/card__amount-like.css);
+@import url(../blocks/popup/__window/_type_confirmation/popup__window_type_confirmation.css);
+@import url(../blocks/popup/__save-button/_type_confirmation/popup__save-button_type_confirmation.css);
+@import url(../blocks/card/__button-del/_state_disable/card__button-del_state_disable.css);
 
 
 
@@ -52,7 +56,7 @@
 
 
 
-
+ 
 
 
 
