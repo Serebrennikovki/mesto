@@ -1,0 +1,23 @@
+.profile__changeAvatar-button{
+    position: absolute;
+    padding: 0;
+    top: 47px;
+    left: 47px;
+    background-image: url(../../../images/editAvatar_button.svg);
+    background-color: rgba(0,0,0,0);
+    border: none;
+    width: 26px;
+    height: 26px;
+    object-fit: cover;
+    z-index: 10;
+    display: none;
+}
+
+.profile__changeAvatar-button:hover{
+    display: block;
+    cursor: pointer;
+}
+
+.profile__changeAvatar-button:hover ~ .profile__avatar{
+    opacity: 0.8;
+}

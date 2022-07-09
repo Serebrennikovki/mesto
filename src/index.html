@@ -13,6 +13,7 @@
             <section class="profile"> 
                 <div class="profile__author">
                     <img class="profile__avatar" src="<%=require('./images/Avatar.png')%>" alt="портрет">
+                    <button class="profile__changeAvatar-button" type="button"></button>
                     <div class="profile__info">
                         <div class="profile__text">
                             <h1 class="profile__name block">Жак-Ив Кусто</h1>
@@ -67,6 +68,26 @@
                     <h2 class="bigImage__name">Интересное место</h2>
                 </div>
             </div>
+            <div class="popup popup_function_confirmation">
+                <div class="popup__overlay"></div>
+                <div class="popup__window popup__window_type_confirmation">
+                    <button class="popup__close-button popup__close-button_type_form" type="button"></button>
+                    <h2 class="popup__header">Вы уверены?</h2>
+                    <button class="popup__save-button popup__save-button_type_confirmation" type="submit">Да</button>
+                </div>
+            </div>
+            <div class="popup popup_function_changeAvatar" id="changeAvatar">
+                <div class="popup__overlay"></div>
+                <form novalidate class="popup__window popup__window_type_changeAvatar" name="changeAvatar">
+                    <button class="popup__close-button popup__close-button_type_form" type="button"></button>
+                    <h2 class="popup__header">Обновить аватар</h2>
+                    <div class ="popup__container">
+                        <input required id="URLInputAvatar" class="popup__input-text popup__input-text_field_job" placeholder="Ссылка на картинку" type="url">
+                        <span class="popup__input-error" id="URLInputAvatar-error"></span>
+                    </div>
+                    <button disabled="true" class="popup__save-button popup__save-button_state_disable" type="submit">Сохранить</button>
+                </form>
+            </div>
         </main>
         <footer class="footer">
                 <p class="footer__copyright">&COPY; 2022 Mesto Russia</p>
@@ -74,11 +95,12 @@
         <template class="card-template" id = 'card-template'>
             <li class="card">
                 <img class="card__image" src="./images/daniil-silantev-4RUjxiSK23M-unsplash.jpg" alt="фото">
-                <button class="card__button-del" type="button"></button>
+                <button class="card__button-del card__button-del_state_disable" type="button"></button>
                 <div class="card__description">
                     <h2 class="card__name block"></h2>
                     <button class="card__button-like" type="button"></button>
-                </div>
+                    <p class="card__amount-like">6</p>
+                </div>  
             </li> 
         </template>
     </body>
