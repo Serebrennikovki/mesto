@@ -1,11 +1,12 @@
 export default class Card{
-    constructor(name, url, amountLikes, idCard, selectorTemplate,method,methodDelete){
+    constructor(name, url, amountLikes, idCard, selectorTemplate, funcOpenPopup,funcCardDelete,funcChangeButtonLike){
         this._name = name;
         this._url = url;
         this._likes = amountLikes;
         this._template = selectorTemplate;
-        this._openImage = method;
-        this._openPopupConfirmation = methodDelete;
+        this._openImage = funcOpenPopup;
+        this._openPopupConfirmation = funcCardDelete;
+        this._changeButtonLike = funcChangeButtonLike;
         this._id = idCard;
     }
 
@@ -35,13 +36,18 @@ export default class Card{
         return this._element;
     }
 
+    setAmountLike(amountLikes){
+        this._amountLike.textContent = amountLikes;
+    }
+
     _handleButtonLike(){
         this._cardButttonLike.classList.toggle('card__button-like_state_active');
+        this._changeButtonLike(this._cardButttonLike, this._id);
     }
 
     addButtonDelete(){
         this._cardButtonDel.classList.remove('card__button-del_state_disable');
-        this._cardButtonDel.addEventListener('click', ()=>{this._openPopupConfirmation(this._id)});
+        this._cardButtonDel.addEventListener('click', ()=>{this._openPopupConfirmation(this._id,this._element)});
     }
 
     _setEventListeners(){

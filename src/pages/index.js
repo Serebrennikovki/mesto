@@ -7,7 +7,7 @@ import PicturePopup from "../components/PicturePopup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupConfirmation from "../components/PopupConfirmation.js";
 import Api from "../components/Api.js";
-import {initialCards, objectConfig} from "../utils/data.js";
+import {objectConfig} from "../utils/data.js";
 const buttonEditProfile = document.querySelector('.profile__change-button');
 const buttonAddCard = document.querySelector('.profile__add-button ');
 const nameInput = document.querySelector('.popup__input-text_field_name');
@@ -22,6 +22,8 @@ popupFormNewCard.setEventListeners();
 const popupFormEditProfile = new PopupWithForm( '.popup_function_editPtofile', submitFormEditProfile);
 popupFormEditProfile.setEventListeners();
 const popupConfirmation = new PopupConfirmation('.popup_function_confirmation',submitConfirmation);
+const popupFormChangeAvatar = new PopupWithForm('.popup_function_changeAvatar', submitChangeAvatar);
+popupFormChangeAvatar.setEventListeners();
 const userInfo = new UserInfo( selectorName, selectorProfession );
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-44/',
@@ -33,12 +35,14 @@ const api = new Api({
 const templateCard = '#card-template';
 const formAddCard = document.forms.addCard;
 const formChangeProfile = document.forms.changeProfile;
+const formChangeAvatar = document.forms.changeAvatar;
 const formValidators = {};
 const containerViewCards = new Section({ renderer: createCard },selectorCardstable);
 //---------------------------------//
 const nameProfile = document.querySelector(selectorName);
 const profesiionProfile =document.querySelector(selectorProfession);
 const imageProfile = document.querySelector('.profile__avatar');
+const buttonChangeImageProfile = document.querySelector('.profile__changeAvatar-button');
 
 
 function onLoadWindow(){
@@ -59,6 +63,7 @@ function onLoadWindow(){
 
     api.getUsersInfo()
     .then((userData) => {
+      console.log(userData);
       nameProfile.textContent = userData.name;
       profesiionProfile.textContent = userData.about;
       imageProfile.src = userData.avatar;
@@ -66,7 +71,7 @@ function onLoadWindow(){
 }
 
 function createCard(cardName, cardURL, amountLikes, idCard, creator){
-  const card = new Card(cardName, cardURL, amountLikes, idCard, templateCard, openPopupImage, openPopupConfimation);
+  const card = new Card(cardName, cardURL, amountLikes, idCard, templateCard, openPopupImage, openPopupConfimation,changeStatusButtonLike);
   const cardView = card.render();
   if(creator){
     card.addButtonDelete();
@@ -78,14 +83,17 @@ function openPopupImage(imageURl, imageName){
   popupImage.open(imageURl,imageName);
 } 
 
-function openPopupConfimation(id){
+function openPopupConfimation(id,element){
   popupConfirmation.open();
-  popupConfirmation.setEventListeners(id);
+  popupConfirmation.setEventListeners(id,element);
 }
 
-function submitConfirmation(id){
+function submitConfirmation(id,element){
     api.deleteCard(id)
-    .then((answer)=>{console.log(answer);})
+    .then((answer)=>{console.log(answer);
+      popupConfirmation.close();
+      element.remove();
+    })
     popupConfirmation.close();
 }
 
@@ -113,16 +121,20 @@ function openPopupEditProfile(){
 }
 
 function submitFormEditProfile(evt){
+  evt.target.querySelector('.popup__save-button').textContent = 'Сохранение...';
   evt.preventDefault();
   const dataInputs = popupFormEditProfile.getInputValues();
   popupFormEditProfile.close();
   userInfo.setUserInfo( {data : dataInputs} );
 
     api.changeUserInfo(dataInputs)
-    .then((answer)=>{console.log(answer);})
+    .then(()=>{
+      evt.target.querySelector('.popup__save-button').textContent = 'Сохранить';
+    })
 }
 
 function submitFormAddCard(evt){
+  evt.target.querySelector('.popup__save-button').textContent = 'Сохранение...';
   evt.preventDefault();
   const data = popupFormNewCard.getInputValues();
   const dataCard = {};
@@ -136,10 +148,46 @@ function submitFormAddCard(evt){
       const arrayFormCard = [];
       arrayFormCard[0] = dataCard;
       containerViewCards.renderer({items:arrayFormCard},true);
+      evt.target.querySelector('.popup__save-button').textContent = 'Добавить';
+      evt.target.reset();
+      formValidators['addCard'].changeButtonState();
+      popupFormNewCard.close();
     })
-    evt.target.reset();
-    formValidators['addCard'].changeButtonState();
-    popupFormNewCard.close();
+
+}
+
+function changeStatusButtonLike(component, idCard){
+  if (component.classList.contains('card__button-like_state_active')){
+    api.addLike(idCard)
+      .then(answer=>{
+        this.setAmountLike(answer.likes.length);
+      })
+  }
+  else{
+    api.deleteLike(idCard)
+      .then(answer=>{
+        this.setAmountLike(answer.likes.length);
+      })
+  }
+}
+
+function openPopupChangeAvatar(){
+  popupFormChangeAvatar.open();
+  console.log('работает');
+}
+
+function submitChangeAvatar(evt){
+  console.log(evt);
+  evt.target.querySelector('.popup__save-button').textContent = 'Сохранение...';
+  evt.preventDefault();
+  const data = popupFormChangeAvatar.getInputValues();
+  api.changeAvatar(data[0])
+  .then((answer)=>{
+    console.log(answer);
+    popupFormChangeAvatar.close();
+    evt.target.querySelector('.popup__save-button').textContent = 'Сохранить';
+  })
+    
 }
 
 document.addEventListener("DOMContentLoaded", onLoadWindow);
@@ -147,3 +195,5 @@ buttonEditProfile.addEventListener('click', openPopupEditProfile);
 buttonAddCard.addEventListener('click', openPopupAddCard);
 formChangeProfile.addEventListener('submit', submitFormEditProfile);
 formAddCard.addEventListener('submit', submitFormAddCard);
+formChangeAvatar.addEventListener('submit', submitChangeAvatar);
+buttonChangeImageProfile.addEventListener('click', openPopupChangeAvatar);
