@@ -4,34 +4,29 @@ export default class Api{
         this._headers = option.headers;
     }
 
-    getInitialcard(){
+    _sendRequest(res){
+        if(res.ok){
+            return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    
+
+    getInitialCards(){
         return fetch(`${this._baseUrl}/cards`,
         {
             method: 'GET',
             headers: this._headers,
         })
-          .then(res => {
-            if(res.ok){
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        })
-          .catch((error)=>{
-            console.log(error);
-        })
+          .then(res=>this._sendRequest(res))
     }
 
-    getUsersInfo(){
+    getUserInfo(){
         return fetch(`${this._baseUrl}/users/me`,{
             method: 'GET',
             headers: this._headers,
         })
-        .then(res => {
-            if(res.ok){
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        })
+        .then(res=>this._sendRequest(res))
           .catch((error)=>{
             console.log(error);
         })
@@ -42,19 +37,11 @@ export default class Api{
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-                name: data[0],
-                link: data[1]
+                name: data.name,
+                link: data.link
               })
         })
-        .then(res => {
-            if(res.ok){
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        })
-          .catch((error)=>{
-            console.log(error);
-        })
+        .then(res=>this._sendRequest(res))
     }
 
     changeUserInfo(data){
@@ -62,20 +49,11 @@ export default class Api{
         method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify({
-            name: data[0],
-            about: data[1],
+            name: data.name,
+            about: data.profession,
         })
     })
-            .then(res => {
-                if(res.ok){
-                    return res.json();
-                }
-                return Promise.reject(`Ошибка: ${res.status}`);
-            })
-            .catch((error)=>{
-                console.log(error);
-                })
-
+            .then(res=>this._sendRequest(res))
     }
 
     deleteCard(idCard){
@@ -83,12 +61,7 @@ export default class Api{
             method:'DELETE',
             headers: this._headers,
         })
-        .then(res => {
-            if(res.ok){
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        })
+        .then(res=>this._sendRequest(res))
         .catch((error)=>{
             console.log(error);
             })
@@ -99,12 +72,7 @@ export default class Api{
             method: 'PUT',
             headers: this._headers
         })
-            .then(res => {
-                if(res.ok){
-                    return res.json();
-                }
-                return Promise.reject(`Ошибка: ${res.status}`);
-        })
+            .then(res=>this._sendRequest(res))
             .catch((error)=>{
                 console.log(error);
                 })
@@ -115,16 +83,8 @@ export default class Api{
         method: 'DELETE',
         headers: this._headers
     })
-        .then(res => {
-            if(res.ok){
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-    })
-        .catch((error)=>{
-            console.log(error);
-            })
-}
+        .then(res=>this._sendRequest(res))
+    }
 
     changeAvatar(link){
         console.log(link);
@@ -135,12 +95,7 @@ export default class Api{
                 avatar: link,
             })
         })
-        .then(res => {
-            if(res.ok){
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-    })
+        .then(res=>this._sendRequest(res))
         .catch((error)=>{
             console.log(error);
             })

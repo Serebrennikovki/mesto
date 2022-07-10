@@ -42,16 +42,27 @@ export default class Card{
 
     _handleButtonLike(){
         this._cardButttonLike.classList.toggle('card__button-like_state_active');
-        this._changeButtonLike(this._cardButttonLike, this._id);
+        if(this._cardButttonLike.classList.contains('card__button-like_state_active')){
+            this._cardButtonLikeState = true;
+        }
+        else{
+            this._cardButtonLikeState = false;
+        }
+
+        this._changeButtonLike( this._cardButtonLikeState, this._id, this);
     }
 
     addButtonDelete(){
-        this._cardButtonDel.classList.remove('card__button-del_state_disable');
-        this._cardButtonDel.addEventListener('click', ()=>{this._openPopupConfirmation(this._id,this._element)});
+        this._cardButtonDel.classList.remove('card__button-del_state_disable');  
+    }
+
+    cardDelete(){
+        this._element.remove();
     }
 
     _setEventListeners(){
         this._cardButttonLike.addEventListener('click', () => {this._handleButtonLike()});
         this._cardImage.addEventListener('click', ()=>{this._openImage(this._url,this._name)});
+        this._cardButtonDel.addEventListener('click', ()=>{this._openPopupConfirmation(this._id,this)});
     }
 }

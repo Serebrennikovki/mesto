@@ -8,11 +8,11 @@ export default class Section {
         this._itemsList = items;
         this._itemsList.forEach(element => {
             this._element = this._renderer(element.name, element.link,element.likes, element.id, creator);
-            this.addItem();
+            this.addItem(this._element);
         });
     }
 
-    addItem(){
-        this._container.prepend(this._element);
+    addItem(element){
+        this._container.prepend(element);
     } 
 } 
