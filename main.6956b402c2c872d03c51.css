@@ -41,7 +41,7 @@
 /*!*************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__avatar/profile__avatar.css ***!
   \*************************************************************************************************************************************************************************/
-.profile__avatar{border-radius:60px;height:120px;-o-object-fit:cover;object-fit:cover;width:120px;z-index:1}.profile__avatar:hover{opacity:.8}.profile__avatar:hover+.profile__changeAvatar-button{display:block}
+.profile__avatar{border-radius:60px;height:120px;-o-object-fit:cover;object-fit:cover;transition:opacity .5s;width:120px}.profile__avatar:hover{opacity:.2}
 /*!***************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__change-button/profile__change-button.css ***!
   \***************************************************************************************************************************************************************************************/
@@ -189,7 +189,7 @@
 /*!****************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/___changeAvatar-button/profile__changeAvatar-button.css ***!
   \****************************************************************************************************************************************************************************************************/
-.profile__changeAvatar-button{background-color:transparent;background-image:url(images/editAvatar_button.svg);border:none;display:none;height:26px;left:47px;-o-object-fit:cover;object-fit:cover;padding:0;position:absolute;top:47px;width:26px;z-index:10}.profile__changeAvatar-button:hover{cursor:pointer;display:block}.profile__changeAvatar-button:hover~.profile__avatar{opacity:.8}
+.profile__changeAvatar-button{background-color:transparent;border:none;border-radius:60px;box-sizing:border-box;height:120px;padding:0;width:120px}.profile__changeAvatar-button:hover{background-image:url(images/editAvatar_button.svg);background-position:50%;background-repeat:no-repeat;background-size:26px;cursor:pointer}
 /*!**********************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/popup/__window/_type_changeAvatar/popup__window_type_changeAvatar.css ***!
   \**********************************************************************************************************************************************************************************************************/
@@ -199,4 +199,4 @@
   \*********************************************************************************************************************************************/
 
 
-/*# sourceMappingURL=main.47b2c2495b5998b780ee.css.map*/
+/*# sourceMappingURL=main.6956b402c2c872d03c51.css.map*/
