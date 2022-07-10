@@ -28,4 +28,4 @@
  
 
 ** Ссылка на готовый проект**
-*[Ссылка на Pages]https://serebrennikovki.github.io/mesto/index.html
+*[Ссылка на Pages]https://serebrennikovki.github.io/mesto/

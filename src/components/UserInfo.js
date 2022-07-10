@@ -8,12 +8,12 @@ export default class UserInfo{
 
 getUserInfo(){
     this.infoAboutUser = {};
-    this.infoAboutUser[0] = this._inputName.textContent;
-    this.infoAboutUser[1] = this._inputProfession.textContent;
+    this.infoAboutUser.name = this._inputName.textContent;
+    this.infoAboutUser.profession= this._inputProfession.textContent;
     return this.infoAboutUser;
 }
 setUserInfo({ data }){
-    this._inputName.textContent = data[0];
-    this._inputProfession.textContent = data[1];
+    this._inputName.textContent = data.name;
+    this._inputProfession.textContent = data.profession;
 }
 }

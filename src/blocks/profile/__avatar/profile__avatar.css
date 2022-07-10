@@ -3,12 +3,11 @@
     height: 120px;
     object-fit: cover;
     border-radius: 60px;
-    z-index: 1;
+    transition: opacity 0.5s;
 }
 .profile__avatar:hover{
-    opacity: 0.8;
+    opacity: 0.2;
 }
-.profile__avatar:hover + .profile__changeAvatar-button{
-    display: block;
-}
+
+
 
