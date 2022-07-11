@@ -27,11 +27,7 @@ export default class PopupWithForm extends Popup{
     }
 
 
-    setStateSaveButtonLoading(text){
-        this._saveButton.textContent = text;
-    }
-
-    setStateSaveButtonNormal(text){
+    setStateSaveButton(text){
         this._saveButton.textContent = text;
     }
 

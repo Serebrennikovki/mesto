@@ -1,14 +1,23 @@
 export default class Card{
-    constructor(name, url, amountLikes, idCard, selectorTemplate, funcOpenPopup,funcCardDelete,funcChangeButtonLike){
-        this._name = name;
-        this._url = url;
-        this._likes = amountLikes;
+    constructor(
+        item,
+        userId,
+        selectorTemplate,
+        funcOpenPopup,
+        funcCardDelete,
+        funcChangeButtonLike
+    )   {
+        this._ownerCard = item.owner._id;
+        this._userId = userId;
+        this._name = item.name;
+        this._url = item.link;
+        this._likes = item.likes;
         this._template = selectorTemplate;
         this._openImage = funcOpenPopup;
         this._openPopupConfirmation = funcCardDelete;
         this._changeButtonLike = funcChangeButtonLike;
-        this._id = idCard;
-    }
+        this._id = item._id;
+        }
 
     _getTemplate(){
         const cardElement = document.querySelector(this._template)
@@ -32,28 +41,27 @@ export default class Card{
         this._cardImage.alt = this._name;
         this._cardImage.id = this._id;
         this._cardObject.textContent = this._name;
-        this._amountLike.textContent = this._likes;
+        this._amountLike.textContent = this._likes.length;
+        if(this._userId === this._ownerCard){
+            this._cardButtonDel.classList.remove('card__button-del_state_disable');  
+        }
         return this._element;
     }
 
-    setAmountLike(amountLikes){
+    setStateButtonLike(amountLikes){
+        this._cardButttonLike.classList.toggle('card__button-like_state_active');
         this._amountLike.textContent = amountLikes;
     }
 
     _handleButtonLike(){
-        this._cardButttonLike.classList.toggle('card__button-like_state_active');
         if(this._cardButttonLike.classList.contains('card__button-like_state_active')){
-            this._cardButtonLikeState = true;
+            this._cardButtonLikeState = false;
         }
         else{
-            this._cardButtonLikeState = false;
+            this._cardButtonLikeState = true;
         }
 
         this._changeButtonLike( this._cardButtonLikeState, this._id, this);
-    }
-
-    addButtonDelete(){
-        this._cardButtonDel.classList.remove('card__button-del_state_disable');  
     }
 
     cardDelete(){

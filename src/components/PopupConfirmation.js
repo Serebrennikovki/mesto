@@ -18,11 +18,7 @@ export default class PopupConfirmation extends Popup{
         this._popup.querySelector('.popup__save-button_type_confirmation').addEventListener('click', ()=>{this._method(this._idCard,this._element);})
     }
 
-    setStateSaveButtonLoading(text){
-        this._saveButton.textContent = text;
-    }
-
-    setStateSaveButtonNormal(text){
+    setStateSaveButton(text){
         this._saveButton.textContent = text;
     }
 }
