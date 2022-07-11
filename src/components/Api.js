@@ -13,7 +13,7 @@ export default class Api{
     
 
     getInitialCards(){
-        return fetch(`${this._baseUrl}/cards`,
+        return fetch(`${this._baseUrl}cards`,
         {
             method: 'GET',
             headers: this._headers,
@@ -22,14 +22,11 @@ export default class Api{
     }
 
     getUserInfo(){
-        return fetch(`${this._baseUrl}/users/me`,{
+        return fetch(`${this._baseUrl}users/me`,{
             method: 'GET',
             headers: this._headers,
         })
         .then(res=>this._sendRequest(res))
-          .catch((error)=>{
-            console.log(error);
-        })
     }
 
     addCard(data){
@@ -45,41 +42,35 @@ export default class Api{
     }
 
     changeUserInfo(data){
-        return fetch(`${this._baseUrl}/users/me`,{
+        return fetch(`${this._baseUrl}users/me`,{
         method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify({
             name: data.name,
-            about: data.profession,
+            about: data.about
         })
     })
             .then(res=>this._sendRequest(res))
     }
 
     deleteCard(idCard){
-        return fetch(`${this._baseUrl}/cards/${idCard}`,{
+        return fetch(`${this._baseUrl}cards/${idCard}`,{
             method:'DELETE',
             headers: this._headers,
         })
         .then(res=>this._sendRequest(res))
-        .catch((error)=>{
-            console.log(error);
-            })
     }
     
     addLike(id){
-        return fetch(`${this._baseUrl}/cards/${id}/likes`,{
+        return fetch(`${this._baseUrl}cards/${id}/likes`,{
             method: 'PUT',
             headers: this._headers
         })
             .then(res=>this._sendRequest(res))
-            .catch((error)=>{
-                console.log(error);
-                })
     }
 
     deleteLike(id){
-    return fetch(`${this._baseUrl}/cards/${id}/likes`,{
+    return fetch(`${this._baseUrl}cards/${id}/likes`,{
         method: 'DELETE',
         headers: this._headers
     })
@@ -88,7 +79,7 @@ export default class Api{
 
     changeAvatar(link){
         console.log(link);
-        return fetch(`${this._baseUrl}/users/me/avatar`,{
+        return fetch(`${this._baseUrl}users/me/avatar`,{
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
@@ -96,9 +87,6 @@ export default class Api{
             })
         })
         .then(res=>this._sendRequest(res))
-        .catch((error)=>{
-            console.log(error);
-            })
     }
 
 }
